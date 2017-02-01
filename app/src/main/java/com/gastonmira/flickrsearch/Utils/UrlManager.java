@@ -1,4 +1,4 @@
-package com.gastonmira.flickrsearch;
+package com.gastonmira.flickrsearch.Utils;
 
 import android.net.Uri;
 

@@ -1,4 +1,4 @@
-package com.gastonmira.flickrsearch;
+package com.gastonmira.flickrsearch.Model;
 
 import java.io.Serializable;
 

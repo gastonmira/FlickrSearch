@@ -1,7 +1,9 @@
-package com.gastonmira.flickrsearch;
+package com.gastonmira.flickrsearch.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.gastonmira.flickrsearch.R;
 
 public class GalleryActivity extends AppCompatActivity {
 
