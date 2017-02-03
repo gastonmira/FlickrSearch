@@ -7,10 +7,7 @@ import android.net.Uri;
  */
 
 public class UrlManager {
-    private static final String API_KEY = "3861b5348a35dc8ee6e66346f14f2712";
-    private static final String ENDPOINT = "https://api.flickr.com/services/rest/";
-    private static final String METHOD_GETRECENT = "flickr.photos.getRecent";
-    private static final String METHOD_SEARCH = "flickr.photos.search";
+
 
     private static volatile UrlManager instance = null;
     private UrlManager() {
@@ -28,7 +25,7 @@ public class UrlManager {
         return instance;
     }
 
-    public static String getItemUrl(String query, int page) {
+    /*public static String getItemUrl(String query, int page) {
         String url;
         if (query != null) {
             url = Uri.parse(ENDPOINT).buildUpon()
@@ -49,5 +46,5 @@ public class UrlManager {
                     .build().toString();
         }
         return url;
-    }
+    }*/
 }

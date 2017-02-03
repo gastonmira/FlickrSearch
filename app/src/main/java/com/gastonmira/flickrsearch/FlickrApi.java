@@ -1,6 +1,7 @@
 package com.gastonmira.flickrsearch;
 
 import com.gastonmira.flickrsearch.Model.Photo;
+import com.gastonmira.flickrsearch.Utils.AppConstants;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -13,18 +14,18 @@ import retrofit2.http.GET;
 public interface FlickrApi {
     @GET
     Call<Photo> getRecentPhotos(
-            @Field("method") String method,
-            @Field("api_key") String apiKey,
-            @Field("format") String format,
-            @Field("nojsoncallback") String noJsonCallback,
-            @Field("page") String page);
+            @Field(AppConstants.METHOD_FIELD) String method,
+            @Field(AppConstants.APIKEY_FIELD) String apiKey,
+            @Field(AppConstants.FORMAT_FIELD) String format,
+            @Field(AppConstants.NSJSONCALLBACK_FIELD) String noJsonCallback,
+            @Field(AppConstants.PAGE_FIELD) String page);
 
     @GET
     Call<Photo> getPhotoBySearch(
-            @Field("method") String method,
-            @Field("api_key") String apiKey,
-            @Field("format") String format,
-            @Field("nojsoncallback") String noJsonCallback,
-            @Field("text") String query,
-            @Field("page") String page);
+            @Field(AppConstants.METHOD_FIELD) String method,
+            @Field(AppConstants.APIKEY_FIELD) String apiKey,
+            @Field(AppConstants.FORMAT_FIELD) String format,
+            @Field(AppConstants.NSJSONCALLBACK_FIELD) String noJsonCallback,
+            @Field(AppConstants.QUERY_FIELD) String query,
+            @Field(AppConstants.PAGE_FIELD) String page);
 }
