@@ -13,6 +13,7 @@ public class AppConstants {
     public static final String APIKEY_FIELD = "api_key";
     public static final String FORMAT_FIELD = "format";
     public static final String NSJSONCALLBACK_FIELD = "nojsoncallback";
+    public static final String PER_PAGE_FIELD = "per_page";
     public static final String PAGE_FIELD = "page";
     public static final String QUERY_FIELD = "text";
 }
