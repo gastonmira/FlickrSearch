@@ -13,13 +13,18 @@ import retrofit2.http.GET;
 public interface FlickrApi {
     @GET
     Call<Photo> getRecentPhotos(
-            @Field("method") String method
-    );
+            @Field("method") String method,
+            @Field("api_key") String apiKey,
+            @Field("format") String format,
+            @Field("nojsoncallback") String noJsonCallback,
+            @Field("page") String page);
 
     @GET
     Call<Photo> getPhotoBySearch(
             @Field("method") String method,
-            @Field("query") String query
-            //add more fields
-    );
+            @Field("api_key") String apiKey,
+            @Field("format") String format,
+            @Field("nojsoncallback") String noJsonCallback,
+            @Field("text") String query,
+            @Field("page") String page);
 }
