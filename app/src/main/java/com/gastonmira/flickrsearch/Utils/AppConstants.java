@@ -6,7 +6,7 @@ package com.gastonmira.flickrsearch.Utils;
 
 public class AppConstants {
     public static final String API_KEY = "3861b5348a35dc8ee6e66346f14f2712";
-    public static final String ENDPOINT = "https://api.flickr.com/services/rest/";
+    public static final String ENDPOINT = "https://api.flickr.com/services/";
     public static final String METHOD_GETRECENT = "flickr.photos.getRecent";
     public static final String METHOD_SEARCH = "flickr.photos.search";
     public static final String METHOD_FIELD = "method";
