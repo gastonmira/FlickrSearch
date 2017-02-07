@@ -2,8 +2,8 @@ package com.gastonmira.flickrsearch;
 
 import android.util.Log;
 
-import com.gastonmira.flickrsearch.Model.FlickrPhotos;
 import com.gastonmira.flickrsearch.Model.PhotoResponse;
+import com.gastonmira.flickrsearch.Model.PhotoEntity;
 import com.gastonmira.flickrsearch.Utils.AppConstants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,10 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by gaston on 2/6/17.
  */
 
-public class GetRecentPhotosController implements Callback<FlickrPhotos> {
-
-    private Retrofit mRetrofit;
-
+public class GetRecentPhotosController implements Callback<PhotoResponse> {
 
     public void startConnection() {
 
@@ -32,30 +29,29 @@ public class GetRecentPhotosController implements Callback<FlickrPhotos> {
                 .setLenient()
                 .create();
 
-        mRetrofit = new Retrofit.Builder()
+        Retrofit mRetrofit = new Retrofit.Builder()
                 .baseUrl(AppConstants.ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         FlickrApi flickrApi = mRetrofit.create(FlickrApi.class);
-        Call<FlickrPhotos> call = flickrApi.getRecentPhotos(AppConstants.METHOD_GETRECENT,AppConstants.API_KEY,AppConstants.FORMAT_FIELD, AppConstants.NSJSONCALLBACK_FIELD,
-                AppConstants.PER_PAGE_FIELD,AppConstants.PAGE_FIELD);
+        Call<PhotoResponse> call = flickrApi.getRecentPhotos(AppConstants.METHOD_GETRECENT, AppConstants.API_KEY, "json", 1,50,2);
         call.enqueue(this);
 
     }
 
 
     @Override
-    public void onResponse(Call<FlickrPhotos> call, Response<FlickrPhotos> response) {
-        List<PhotoResponse> list = new ArrayList<>();
+    public void onResponse(Call<PhotoResponse> call, Response<PhotoResponse> response) {
+        List<PhotoEntity> list = new ArrayList<>();
         if(response.isSuccessful()) {
-            list = response.body().getPhotosList();
+            list = response.body().getPhotos().getPhotosList();
         }
         list.get(0).getFarm();
     }
 
     @Override
-    public void onFailure(Call<FlickrPhotos> call, Throwable t) {
-        Log.e("ERROR API", t.getMessage());
+    public void onFailure(Call<PhotoResponse> call, Throwable t) {
+        Log.e("ERROR API FLICKR", t.getMessage());
     }
 }

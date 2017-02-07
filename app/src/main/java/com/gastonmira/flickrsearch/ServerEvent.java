@@ -1,23 +1,23 @@
 package com.gastonmira.flickrsearch;
 
-import com.gastonmira.flickrsearch.Model.PhotoResponse;
+import com.gastonmira.flickrsearch.Model.PhotoEntity;
 
 /**
  * Created by gaston on 2/3/17.
  */
 
 public class ServerEvent {
-    private PhotoResponse photoResponse;
+    private PhotoEntity photoEntity;
 
-    public ServerEvent(PhotoResponse photoResponse) {
-        this.photoResponse = photoResponse;
+    public ServerEvent(PhotoEntity photoEntity) {
+        this.photoEntity = photoEntity;
     }
 
-    public PhotoResponse getPhotoResponse() {
-        return photoResponse;
+    public PhotoEntity getPhotoEntity() {
+        return photoEntity;
     }
 
-    public void setPhotoResponse(PhotoResponse photoResponse) {
-        this.photoResponse = photoResponse;
+    public void setPhotoEntity(PhotoEntity photoEntity) {
+        this.photoEntity = photoEntity;
     }
 }
