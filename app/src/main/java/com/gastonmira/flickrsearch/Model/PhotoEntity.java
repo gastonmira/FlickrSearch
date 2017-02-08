@@ -15,6 +15,10 @@ public class PhotoEntity {
     private String farm;
     private String title;
 
+    public PhotoEntity() {
+
+    }
+
     public PhotoEntity(String id, String secret, String server, String farm, String title) {
         this.id = id;
         this.secret = secret;

@@ -27,8 +27,8 @@ public interface FlickrApi {
             @Query(AppConstants.METHOD_FIELD) String method,
             @Query(AppConstants.APIKEY_FIELD) String apiKey,
             @Query(AppConstants.FORMAT_FIELD) String format,
-            @Query(AppConstants.NSJSONCALLBACK_FIELD) String noJsonCallback,
+            @Query(AppConstants.NSJSONCALLBACK_FIELD) int noJsonCallback,
             @Query(AppConstants.QUERY_FIELD) String query,
-            @Query(AppConstants.PER_PAGE_FIELD) String perPage,
-            @Query(AppConstants.PAGE_FIELD) String page);
+            @Query(AppConstants.PER_PAGE_FIELD) int perPage,
+            @Query(AppConstants.PAGE_FIELD) int page);
 }

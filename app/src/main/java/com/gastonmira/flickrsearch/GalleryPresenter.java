@@ -12,7 +12,6 @@ import retrofit2.Response;
 
 public class GalleryPresenter implements Callback<PhotoResponse> {
 
-    private GetRecentPhotosController mGetRecentPhotosController;
     private GalleryView mGalleryView;
 
     public GalleryPresenter(GalleryView view) {
@@ -20,15 +19,14 @@ public class GalleryPresenter implements Callback<PhotoResponse> {
     }
 
     public void getRecentPhotosList() {
-        mGalleryView.showWait();
-
-        Call<PhotoResponse> call = mGetRecentPhotosController.startConnection(50,1);
+        GetRecentPhotosController getRecentPhotosController= new GetRecentPhotosController();
+        Call<PhotoResponse> call = getRecentPhotosController.startConnection(50,1);
         call.enqueue(this);
     }
 
     @Override
     public void onResponse(Call<PhotoResponse> call, Response<PhotoResponse> response) {
-        if(response.isSuccessful()) {
+        if (response.isSuccessful()) {
             mGalleryView.removeWait();
             mGalleryView.getRecentPhotosSuccess(response.body().getPhotos().getPhotosList());
         }
