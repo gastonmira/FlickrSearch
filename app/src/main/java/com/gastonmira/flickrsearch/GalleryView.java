@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public interface GalleryView {
 
-    void removeWait();
     void onFailure(String errorMessage);
     void getRecentPhotosSuccess(ArrayList<PhotoEntity> photoResponse);
 

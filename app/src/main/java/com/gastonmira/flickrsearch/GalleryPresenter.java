@@ -27,7 +27,6 @@ public class GalleryPresenter implements Callback<PhotoResponse> {
     @Override
     public void onResponse(Call<PhotoResponse> call, Response<PhotoResponse> response) {
         if (response.isSuccessful()) {
-            mGalleryView.removeWait();
             mGalleryView.getRecentPhotosSuccess(response.body().getPhotos().getPhotosList());
         }
     }
